@@ -1,0 +1,5 @@
+---
+- name: roles
+  hosts: java_server
+  roles: 
+    - prometheus

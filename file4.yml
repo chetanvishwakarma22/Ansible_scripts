@@ -1,0 +1,17 @@
+---
+- hosts: all
+  ignore_errors: yes
+  tasks:
+    - name: wrong package install
+      apt: 
+        name: git
+        state: present
+      #ignore_errors: yes
+      register: error_message
+
+    - name: fail if failed status
+      fail:
+        msg: "The state is failed"
+      when: error_message.failed == true
+    - debug:
+        var: error_message1 

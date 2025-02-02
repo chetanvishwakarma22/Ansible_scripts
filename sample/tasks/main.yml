@@ -1,0 +1,12 @@
+---
+# tasks file for sample
+- name: copy_file
+  copy:
+    src: 1.tx
+    dest: /home/ubuntu/
+
+- name: template_file
+  template: 
+    src: templates/1.j2
+    dest: /home/ubuntu/
+

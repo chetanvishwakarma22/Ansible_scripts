@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+    - name: List files
+      shell: ls
+      notify: show_msg
+    - name:
+      apt:
+        name: git
+        state: present
+  handlers:
+    - name: show_msg
+      debug:
+        msg: "Listed files"

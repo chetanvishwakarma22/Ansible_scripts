@@ -1,0 +1,33 @@
+---
+- hosts: all
+  tasks:
+    - name: installing_packages
+      when: ansible_distribution == "centos" 
+      yum:
+        name: git
+        state: present
+      become: yes
+
+    - name: install_ubuntu_flovour
+      when: ansible_distribution == "Ubuntu"
+      apt: 
+        name: git 
+        state: latest
+
+    - name: copy_file
+      copy:
+        src: /root/code.yml
+        dest: /root/
+
+    - name: change_permission 
+      file:
+        path: /root/code.yml
+        mode: 766
+        owner: root 
+        group: root
+
+    - name: create_new_file
+      copy: 
+        content: "welcome"
+        dest: /home/ubuntu/1.txt
+

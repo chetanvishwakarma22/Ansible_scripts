@@ -1,0 +1,8 @@
+---
+# vars file for grafanainstall
+grafana_repo_url: "https://packages.grafana.com/oss/deb"
+grafana_gpg_key: "https://packages.grafana.com/gpg.key"
+grafana_package_name: "grafana"
+grafana_service_name: "grafana-server"
+grafana_config_file: "/etc/grafana/grafana.ini"
+grafana_port: 3000
