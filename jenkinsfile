@@ -1,0 +1,14 @@
+pipeline
+{ 
+    agent any
+    stages
+    {
+        stage("Execute grafana"){
+            steps{
+                sh "sudo ansible-playbook /root/grafana.yml"
+                
+            }
+            
+        }
+    }
+}
