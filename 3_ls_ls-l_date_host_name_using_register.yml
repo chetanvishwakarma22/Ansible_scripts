@@ -1,0 +1,33 @@
+---
+- hosts: all
+  tasks:
+  
+    - name: list_files
+      shell: ls
+      register: list_values
+    - debug:
+        var: list_values.stdout_lines
+
+    # Here register is used to store the output in the form of variable 
+      
+    - name: list_files_directories
+      shell: ls -l
+      register: list_files_directories_new
+    - debug: 
+        var: list_files_directories_new.stdout_lines
+        
+
+    - name: display_date
+      shell: date
+      register: today_date
+    - debug: 
+       var: today_date.stdout_lines
+       
+
+    - name: host_name
+      shell: hostname
+      register: host_name
+    - debug: 
+        var: host_name.stdout_lines
+
+

@@ -1,0 +1,41 @@
+---
+- hosts: all 
+  tasks:
+  
+    - name: installing_packages
+      when: ansible_distribution == "centos"
+      yum:
+        name: git 
+        state: present
+      become: yes
+
+    - name: installing_ubuntu_flavour
+      when: ansible_distribution == "Ubuntu"
+      apt:
+        name: git
+        state: present
+
+    - name: copy_file
+      copy: 
+        src: /root/file1.yml
+        dest: /home/ubuntu/
+
+    - name: change_permission
+      file:
+        dest: /root/sachin.txt
+        mode: 766
+        owner: root
+        group: root
+
+    - name: create_file
+      file:
+        dest: /root/abc.txt
+        state: touch
+        mode: 666
+        owner: ubuntu
+        group: ubuntu
+
+      - name: create_new_file
+      copy:
+        content: "New file added"
+        dest: /home/ubuntu/file1..txt

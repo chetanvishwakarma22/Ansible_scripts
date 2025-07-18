@@ -1,0 +1,17 @@
+---
+- hosts: all
+  ignore_unreachable: true
+  tasks:
+  
+    - name: list_files
+      shell: ls1
+      ignore_errors: true
+      register: list_values
+    - debug:
+        var: list_values.stdout_lines
+
+    - name: disc_space
+      shell: df -h
+      register: disc_space_used
+    - debug: 
+        var: disc_space_used.stdout_lines                               

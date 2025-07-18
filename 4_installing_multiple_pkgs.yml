@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install multiple packages
+      apt:
+        name:
+          - git
+          - wget
+          - curl
+        state: present
+        update_cache: yes
